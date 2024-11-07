@@ -1,12 +1,14 @@
 import { login, handleIncomingRedirect, fetch } from "@inrupt/solid-client-authn-browser";
 import { getSolidDataset, getThing, getStringNoLocale } from "@inrupt/solid-client";
 
-const SOLID_IDP = "https://inrupt.net"; // Replace with your identity provider
+// const SOLID_IDP = "https://inrupt.net";
+const SOLID_IDP = "https://solidcommunity.net";
 
 // Handle redirect after login
 handleIncomingRedirect().then((session) => {
-  if (session.info.isLoggedIn) {
-    displayProfile(session.info.webId);
+  console.log("Session:", session);
+  if (session.isLoggedIn) {
+    displayProfile(session.webId);
   }
 });
 
