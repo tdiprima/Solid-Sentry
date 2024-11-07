@@ -1,0 +1,19 @@
+{
+  "name": "solid-6088",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@inrupt/solid-client": "^2.1.2",
+    "@inrupt/solid-client-authn-browser": "^2.2.7"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}
