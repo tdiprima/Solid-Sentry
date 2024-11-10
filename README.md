@@ -1,39 +1,36 @@
 # solid-6088
 
-This setup provides a foundational example of how Solid OIDC works in practice.
+This project demonstrates a basic implementation of Solid OIDC for secure login and profile access in a web application.
 
-1. **Solid OIDC Integration**: I created a simple app using `app.js` and `index.html` to demonstrate Solid OIDC login and profile access.
+### Overview
 
-2. **Login Functionality**: I set up a login button in `index.html` that, when clicked, initiates the Solid login process with an OpenID Connect (OIDC) issuer (`https://solidcommunity.net`) configured in `app.js`.
+1. **Solid OIDC Integration**: The app showcases Solid OpenID Connect (OIDC) integration using `app.js` and `index.html` to handle login and fetch user profiles.
+2. **Login and Session Management**: A login button triggers the OIDC flow with a designated issuer (`https://solidcommunity.net`). Post-login, `app.js` processes the session and, if valid, retrieves basic profile data, such as the user's name.
+3. **Proof of Concept**: This setup serves as a foundational example of authenticating and accessing user data using Solid's framework.
 
-3. **Session Handling and Profile Display**: In `app.js`, after login, `handleIncomingRedirect` manages the session. If the user is logged in, the app fetches and displays the user's profile name using Solid's client libraries.
+### Setup and Usage
 
-4. **Proof of Concept**: This setup successfully demonstrates logging in with Solid OIDC and fetching/displaying basic profile information (e.g., name) from the user's WebID profile. 
+1. **Start the Solid Community Server** (optional for local development):
 
+   ```sh
+   npx @solid/community-server -p 3003 #-c @css:config/file.json
+   ```
 
+2. **Install Dependencies**:
 
-### A. Start the Solid Community Server on Port 3003 with a Specific Config
+   ```sh
+   npm install @inrupt/solid-client-authn-browser @inrupt/solid-client
+   ```
 
-```sh
-npx @solid/community-server -p 3003 #-c @css:config/file.json
-```
+   - **`@inrupt/solid-client-authn-browser`**: A library for handling authentication in browser-based applications using Solid, helping users log in to Solid pods and handle session management.
+   - **`@inrupt/solid-client`**: A library for interacting with Solid pods, allowing you to read from and write to pod data, manage permissions, and more.
 
-- If you do this, then uncomment the proper `SOLID_IDP` in app.js
-- **npx**: Executes the specified package (`@solid/community-server`) without needing a global installation.
-- **`@solid/community-server`**: Runs the Solid Community Server, a server that enables you to host personal data pods for Solid applications.
-- **`-p 3003`**: Sets the server to run on port `3003` instead of the default port.
-- **`-c @css:config/file.json`**: Specifies a configuration file (`file.json`) located within the `@css:config` directory, defining server setup details like storage, authentication, and access control settings. <mark>**EXCEPT**</mark> we didn't install `@solid/community-server` so that folder and file does not exist.
+3. **Run the App**:
 
-This command launches the Solid Community Server with custom configurations on port 3003.
+   ```sh
+   npm start
+   ```
 
-### B. Install Solid Client Libraries for Browser Authentication
-```sh
-npm install @inrupt/solid-client-authn-browser @inrupt/solid-client
-```
-
-- **`@inrupt/solid-client-authn-browser`**: A library for handling authentication in browser-based applications using Solid, helping users log in to Solid pods and handle session management.
-- **`@inrupt/solid-client`**: A library for interacting with Solid pods, allowing you to read from and write to pod data, manage permissions, and more.
-
-This command installs both libraries, making it easier to build applications that authenticate users and access their data on Solid pods.
+The app will be accessible on http://localhost:5173/ with OIDC functionality ready for testing.
 
 <br>
