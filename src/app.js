@@ -2,7 +2,8 @@ import { login, handleIncomingRedirect, fetch } from "@inrupt/solid-client-authn
 import { getSolidDataset, getThing, getStringNoLocale } from "@inrupt/solid-client";
 
 // const SOLID_IDP = "https://inrupt.net";
-const SOLID_IDP = "https://solidcommunity.net";
+// const SOLID_IDP = "https://solidcommunity.net";
+const SOLID_IDP = "http://localhost:3003";
 
 // Handle redirect after login
 handleIncomingRedirect().then((session) => {
