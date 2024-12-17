@@ -1,4 +1,4 @@
-# solid-6088
+# Solid-Sentry
 
 This project demonstrates a basic implementation of Solid OIDC for secure login and profile access in a web application.
 
